@@ -34,7 +34,11 @@ const mongoURI = "mongodb+srv://bky07:Bharath@cluster0.niox0r7.mongodb.net/";
 //const mongoURI='mongodb+srv://Rishi:Rishi@cluster0.f2f1iv8.mongodb.net/?retryWrites=true&w=majority'
 // Connect to mongo
 mongoose.connect(mongoURI)
-.then(()=> {console.log("MongoDB Connected");})
+.then(()=> {console.log("MongoDB Connected");
+           const port =3001||process.env.port;
+
+            app.listen(port, ()=> console.log(`Server started running on port ${port}`));
+           })
 .catch(err => console.log(err));
 
 app.use(passport.initialize());
@@ -55,6 +59,6 @@ if (process.env.NODE_ENV === 'production') {
     });
   }
 
-const port =3001||process.env.port;
+//const port =3001||process.env.port;
 
-app.listen(port, ()=> console.log(`Server started running on port ${port}`));
+//app.listen(port, ()=> console.log(`Server started running on port ${port}`));
